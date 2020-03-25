@@ -1,32 +1,25 @@
 {
   "todo": [
     {
-      "id": 1,
-      "name": "Sebastian",
-      "description": "Eschweiler",
-      "createdAt": "2020-03-25T23:00:00.000Z",
-      "editedAt": "2020-03-30T22:00:00.000Z"
+      "id": 31,
+      "name": "test name",
+      "description": "description 122222",
+      "createAt": "2020-03-25T16:07:53.244Z",
+      "editedAt": "2020-03-25T16:07:53.244Z"
     },
     {
-      "id": 2,
-      "name": "Steve",
-      "description": "Palmer",
-      "createdAt": "",
-      "editedAt": ""
-    },
+      "id": 64,
+      "name": "descss",
+      "description": "123123",
+      "createAt": "2020-03-25T16:08:09.443Z",
+      "editedAt": "2020-03-25T16:08:09.443Z"
+    }
+  ],
+  "users": [
     {
-      "id": 3,
-      "name": "Ann",
-      "description": "Smith",
-      "createdAt": "2020-03-24T23:00:00.000Z",
-      "editedAt": "2020-03-25T23:00:00.000Z"
-    },
-    {
-      "id": 33,
-      "name": "test 222",
-      "description": "description",
-      "createAt": "2020-03-25T15:48:42.890Z",
-      "editedAt": "2020-03-25T15:48:42.890Z"
+      "email": "q@ukr.net",
+      "password": "qwerty123",
+      "id": 1
     }
   ]
 }

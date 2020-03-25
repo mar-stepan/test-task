@@ -35,14 +35,14 @@ export class TodoListItemComponent implements OnInit {
       data: item ? {item, new: false} : {new: true}
     }).afterClosed()
       .subscribe((res: { item: TodoListModel, new: boolean }) => {
-        if (res && res.new) {
-          this.todoListService.addList(res.item);
-        } else {
-          this.todoListService.updateList(res.item);
+        if (res) {
+          if (res.new) {
+            this.todoListService.addList(res.item);
+          } else {
+            this.todoListService.updateList(res.item);
+          }
         }
-        console.log('', res);
       });
-    console.log('', item);
   }
 
   deleteTable(item: TodoListModel): void {
@@ -53,6 +53,5 @@ export class TodoListItemComponent implements OnInit {
           this.todoListService.deleteItemFromList(item);
         }
       });
-    console.log('', item);
   }
 }

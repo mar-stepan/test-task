@@ -8,7 +8,7 @@
         <input matInput type="number" formControlName="id" autocomplete="off">
       </label>
       <mat-error *ngIf="itemForm.get('id').hasError('required')">
-        Filed is required
+        Id is required
       </mat-error>
     </mat-form-field>
 
@@ -18,7 +18,7 @@
         <input matInput type="text" formControlName="name" autocomplete="off">
       </label>
       <mat-error *ngIf="itemForm.get('name').hasError('required')">
-        Filed is required
+        Name is required
       </mat-error>
     </mat-form-field>
 
@@ -28,7 +28,7 @@
         <input matInput type="text" formControlName="description" autocomplete="off">
       </label>
       <mat-error *ngIf="itemForm.get('description').hasError('required')">
-        Filed is required
+        Description is required
       </mat-error>
     </mat-form-field>
 
@@ -40,7 +40,7 @@
       <mat-datepicker-toggle matSuffix [for]="createdAt"></mat-datepicker-toggle>
       <mat-datepicker #createdAt></mat-datepicker>
       <mat-error *ngIf="itemForm.get('createAt').hasError('required')">
-        Filed is required
+        Created at required
       </mat-error>
     </mat-form-field>
 
@@ -52,7 +52,7 @@
       <mat-datepicker-toggle matSuffix [for]="editedAt"></mat-datepicker-toggle>
       <mat-datepicker #editedAt></mat-datepicker>
       <mat-error *ngIf="itemForm.get('editedAt').hasError('required')">
-        Filed is required
+        Edited at is required
       </mat-error>
     </mat-form-field>
 

@@ -13,7 +13,7 @@ export class NewEditTodoListComponent implements OnInit {
   itemForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     private matDialogRef: MatDialogRef<NewEditTodoListComponent>,
     @Inject(MAT_DIALOG_DATA) private data: { item: TodoListModel, new: boolean }
   ) {
@@ -26,7 +26,7 @@ export class NewEditTodoListComponent implements OnInit {
   prepareData(): void {
     const item = this.data.new ? new TodoListModel() : this.data.item;
     console.log('', item);
-    this.itemForm = this.formBuilder.group({
+    this.itemForm = this.fb.group({
       id: [item.id, {disable: true}],
       name: [item.name, Validators.required],
       description: [item.description, Validators.required],
@@ -41,7 +41,6 @@ export class NewEditTodoListComponent implements OnInit {
 
   onSubmit(): void {
     const item = this.itemForm.value;
-    console.log('', item);
     this.matDialogRef.close({item, new: this.data.new});
   }
 

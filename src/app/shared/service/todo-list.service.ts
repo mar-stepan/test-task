@@ -17,7 +17,7 @@ export class TodoListService {
   }
 
   getList(): void {
-    this.http.get<TodoListModel[]>('http://localhost:3000/todo')
+    this.http.get('http://localhost:3000/todo')
       .subscribe((res: TodoListModel[]) => {
         this.$todoListItem.next(res);
       });
