@@ -22,20 +22,6 @@
       "editedAt": "2020-03-25T23:00:00.000Z"
     },
     {
-      "name": "test 222",
-      "description": "description",
-      "createdAt": "2020-03-25T15:39:40.802Z",
-      "editedAt": "2020-03-25T15:39:40.802Z",
-      "id": 4
-    },
-    {
-      "name": "test 33",
-      "description": "description 2222",
-      "createdAt": "2020-03-25T15:40:23.497Z",
-      "editedAt": "2020-03-25T15:40:23.497Z",
-      "id": 5
-    },
-    {
       "id": 33,
       "name": "test 222",
       "description": "description",

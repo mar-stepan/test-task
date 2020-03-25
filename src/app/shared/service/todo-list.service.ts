@@ -37,4 +37,12 @@ export class TodoListService {
         this.getList();
       });
   }
+
+  deleteItemFromList(item: TodoListModel): void {
+    const id = item.id;
+    this.http.delete(`http://localhost:3000/todo/${id}`)
+      .subscribe((res: TodoListModel) => {
+        this.getList();
+      });
+  }
 }

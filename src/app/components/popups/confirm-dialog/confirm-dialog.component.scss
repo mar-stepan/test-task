@@ -1,0 +1,14 @@
+.delete-button {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  color: white;
+
+  &__yes {
+    background: green;
+  }
+
+  &__no {
+    background: red;
+  }
+}

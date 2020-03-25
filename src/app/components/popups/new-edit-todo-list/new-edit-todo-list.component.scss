@@ -1,0 +1,18 @@
+.item-dialog {
+  padding: 24px;
+  position: relative;
+  text-align: center;
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+}

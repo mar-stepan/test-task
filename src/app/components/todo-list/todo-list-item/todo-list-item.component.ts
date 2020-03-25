@@ -3,6 +3,7 @@ import {TodoListModel} from '../../../shared/models/todo-list.model';
 import {TodoListService} from '../../../shared/service/todo-list.service';
 import {MatDialog} from '@angular/material/dialog';
 import {NewEditTodoListComponent} from '../../popups/new-edit-todo-list/new-edit-todo-list.component';
+import {ConfirmDialogComponent} from '../../popups/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -44,7 +45,14 @@ export class TodoListItemComponent implements OnInit {
     console.log('', item);
   }
 
-  deleteTable(element: TodoListModel): void {
-    console.log('', element);
+  deleteTable(item: TodoListModel): void {
+    this.matDialog.open(ConfirmDialogComponent)
+      .afterClosed()
+      .subscribe((res: boolean) => {
+        if (res) {
+          this.todoListService.deleteItemFromList(item);
+        }
+      });
+    console.log('', item);
   }
 }
