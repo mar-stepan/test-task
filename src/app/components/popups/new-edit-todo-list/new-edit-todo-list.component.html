@@ -1,0 +1,64 @@
+<div class="item-dialog">
+  <mat-icon class="item-dialog__close" (click)="close()">close</mat-icon>
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>ID</mat-label>
+      <label>
+        <input matInput type="number" formControlName="id" autocomplete="off">
+      </label>
+      <mat-error *ngIf="itemForm.get('id').hasError('required')">
+        Filed is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <label>
+        <input matInput type="text" formControlName="name" autocomplete="off">
+      </label>
+      <mat-error *ngIf="itemForm.get('name').hasError('required')">
+        Filed is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <label>
+        <input matInput type="text" formControlName="description" autocomplete="off">
+      </label>
+      <mat-error *ngIf="itemForm.get('description').hasError('required')">
+        Filed is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Created at</mat-label>
+      <label>
+        <input matInput [matDatepicker]="createdAt" formControlName="createAt">
+      </label>
+      <mat-datepicker-toggle matSuffix [for]="createdAt"></mat-datepicker-toggle>
+      <mat-datepicker #createdAt></mat-datepicker>
+      <mat-error *ngIf="itemForm.get('createAt').hasError('required')">
+        Filed is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Edited at</mat-label>
+      <label>
+        <input matInput [matDatepicker]="editedAt" formControlName="editedAt">
+      </label>
+      <mat-datepicker-toggle matSuffix [for]="editedAt"></mat-datepicker-toggle>
+      <mat-datepicker #editedAt></mat-datepicker>
+      <mat-error *ngIf="itemForm.get('editedAt').hasError('required')">
+        Filed is required
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent"
+            [disabled]="itemForm.invalid">SAVE
+    </button>
+
+  </form>
+</div>
