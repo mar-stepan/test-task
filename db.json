@@ -1,25 +1,4 @@
 {
-  "todo": [
-    {
-      "id": 31,
-      "name": "test name",
-      "description": "description 122222",
-      "createAt": "2020-03-25T16:07:53.244Z",
-      "editedAt": "2020-03-25T16:07:53.244Z"
-    },
-    {
-      "id": 64,
-      "name": "descss",
-      "description": "123123",
-      "createAt": "2020-03-25T16:08:09.443Z",
-      "editedAt": "2020-03-25T16:08:09.443Z"
-    }
-  ],
-  "users": [
-    {
-      "email": "q@ukr.net",
-      "password": "qwerty123",
-      "id": 1
-    }
-  ]
+  "todo": [  ],
+  "users": [  ]
 }

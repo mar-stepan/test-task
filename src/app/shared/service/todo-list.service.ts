@@ -13,7 +13,6 @@ export class TodoListService {
   constructor(
     private http: HttpClient
   ) {
-    this.getList();
   }
 
   getList(): void {

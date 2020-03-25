@@ -14,10 +14,16 @@ export class AuthService {
 
   async loginUser(email, password) {
     return new Promise((resolve, reject) => {
-      this.http.get(`http://localhost:3000/users/${email}`)
-        .subscribe((res: User) => {
-          if (res && password === res.password) {
-            resolve();
+      this.http.get('http://localhost:3000/users')
+        .subscribe((users: User[]) => {
+          if (users.length > 0) {
+            const user = users.find(a => a.email === email);
+            if (user && user.password === password) {
+              localStorage.setItem('todo-task', JSON.stringify(users));
+              resolve();
+            } else {
+              reject();
+            }
           } else {
             reject();
           }
@@ -26,12 +32,9 @@ export class AuthService {
   }
 
   async createUser(email, password) {
-    const user = {email, password};
-    console.log('', {email, password});
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/users/', user)
-        .subscribe((res: any) => {
-          console.log('', res);
+      this.http.post('http://localhost:3000/users/', {email, password})
+        .subscribe((res: User) => {
           if (res) {
             localStorage.setItem('todo-task', JSON.stringify(res));
             resolve();

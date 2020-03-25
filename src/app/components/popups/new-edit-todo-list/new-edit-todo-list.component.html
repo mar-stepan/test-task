@@ -33,26 +33,26 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Created at</mat-label>
+      <mat-label>Date creation</mat-label>
       <label>
         <input matInput [matDatepicker]="createdAt" formControlName="createAt">
       </label>
       <mat-datepicker-toggle matSuffix [for]="createdAt"></mat-datepicker-toggle>
       <mat-datepicker #createdAt></mat-datepicker>
       <mat-error *ngIf="itemForm.get('createAt').hasError('required')">
-        Created at required
+        Date creation is required
       </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Edited at</mat-label>
+      <mat-label>Date modification</mat-label>
       <label>
         <input matInput [matDatepicker]="editedAt" formControlName="editedAt">
       </label>
       <mat-datepicker-toggle matSuffix [for]="editedAt"></mat-datepicker-toggle>
       <mat-datepicker #editedAt></mat-datepicker>
       <mat-error *ngIf="itemForm.get('editedAt').hasError('required')">
-        Edited at is required
+        Date modification is required
       </mat-error>
     </mat-form-field>
 

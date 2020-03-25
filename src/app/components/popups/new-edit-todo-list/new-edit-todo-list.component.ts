@@ -11,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class NewEditTodoListComponent implements OnInit {
 
   itemForm: FormGroup;
-
+  item: TodoListModel;
   constructor(
     private fb: FormBuilder,
     private matDialogRef: MatDialogRef<NewEditTodoListComponent>,
@@ -24,15 +24,15 @@ export class NewEditTodoListComponent implements OnInit {
   }
 
   prepareData(): void {
-    const item = this.data.new ? new TodoListModel() : this.data.item;
-    console.log('', item);
+    this.item = this.data.new ? new TodoListModel() : this.data.item;
     this.itemForm = this.fb.group({
-      id: [item.id, {disable: true}],
-      name: [item.name, Validators.required],
-      description: [item.description, Validators.required],
-      createAt: [item.createAt, Validators.required],
-      editedAt: [item.editedAt, Validators.required]
+      id: [this.item.id, {disable: true}],
+      name: [this.item.name, Validators.required],
+      description: [this.item.description, Validators.required],
+      createAt: [this.item.createAt, Validators.required],
+      editedAt: [this.item.editedAt, Validators.required]
     });
+    this.itemForm.get('id').disable();
   }
 
   close(): void {
@@ -41,6 +41,7 @@ export class NewEditTodoListComponent implements OnInit {
 
   onSubmit(): void {
     const item = this.itemForm.value;
+    item.id = this.item.id;
     this.matDialogRef.close({item, new: this.data.new});
   }
 

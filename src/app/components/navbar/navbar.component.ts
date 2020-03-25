@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {ConfirmDialogComponent} from '../popups/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private matDialog: MatDialog
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
+  logOut(): void {
+    this.matDialog.open(ConfirmDialogComponent, {data: {action: 'log out'}})
+      .afterClosed()
+      .subscribe((res: boolean) => {
+        if (res) {
+          localStorage.removeItem('todo-task');
+          this.router.navigate(['/auth/login']).then();
+        }
+      });
+
+  }
 }

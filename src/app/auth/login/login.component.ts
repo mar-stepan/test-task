@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       await this.authService.loginUser(email, password);
       this.router.navigate(['/']).then();
     } catch (e) {
-      this.error = e.message;
+      this.error = 'Invalid email or password';
     }
   }
 }
