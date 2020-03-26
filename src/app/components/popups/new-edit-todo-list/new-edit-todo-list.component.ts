@@ -32,7 +32,13 @@ export class NewEditTodoListComponent implements OnInit {
       createAt: [this.item.createAt, Validators.required],
       editedAt: [this.item.editedAt, Validators.required]
     });
+    this.blockEditing();
+  }
+
+  blockEditing(): void {
     this.itemForm.get('id').disable();
+    this.itemForm.get('createAt').disable();
+    this.itemForm.get('editedAt').disable();
   }
 
   close(): void {
@@ -40,8 +46,10 @@ export class NewEditTodoListComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const item = this.itemForm.value;
+    const item: TodoListModel = this.itemForm.value;
     item.id = this.item.id;
+    item.createAt = this.item.createAt;
+    item.editedAt = new Date();
     this.matDialogRef.close({item, new: this.data.new});
   }
 
