@@ -47,10 +47,29 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
       .subscribe((res: { item: TodoListModel, new: boolean }) => {
         if (res) {
           if (res.new) {
-            this.todoListService.addList(res.item);
+            this.addList(res.item);
           } else {
-            this.todoListService.updateList(res.item);
+            this.updateList(res.item);
           }
+        }
+      });
+  }
+
+  addList(item: TodoListModel): void {
+    this.todoListService.addList(item)
+      .subscribe((res: TodoListModel) => {
+        if (res) {
+          this.dataSource = this.dataSource.concat(res);
+        }
+      });
+  }
+
+  updateList(item: TodoListModel): void {
+    this.todoListService.updateList(item)
+      .subscribe((res: TodoListModel) => {
+        if (res) {
+          const itemArr: TodoListModel[] = [res];
+          this.dataSource = this.dataSource.map(a => itemArr.find(b => b.id === a.id) || a);
         }
       });
   }
@@ -60,7 +79,16 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
       .afterClosed()
       .subscribe((res: boolean) => {
         if (res) {
-          this.todoListService.deleteItemFromList(item);
+          this.deleteItem(item);
+        }
+      });
+  }
+
+  deleteItem(item: TodoListModel) {
+    this.todoListService.deleteItemFromList(item)
+      .subscribe((res: TodoListModel) => {
+        if (res) {
+          this.dataSource = this.dataSource.filter(a => a.id !== item.id);
         }
       });
   }

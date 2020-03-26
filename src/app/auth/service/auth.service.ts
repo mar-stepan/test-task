@@ -12,7 +12,7 @@ export class AuthService {
   ) {
   }
 
-  async loginUser(email, password) {
+  async loginUser(email, password): Promise<User> {
     return new Promise((resolve, reject) => {
       this.http.get('http://localhost:3000/users')
         .subscribe((users: User[]) => {
@@ -31,7 +31,7 @@ export class AuthService {
     });
   }
 
-  async createUser(email, password) {
+  async createUser(email, password): Promise<User> {
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/users/', {email, password})
         .subscribe((res: User) => {

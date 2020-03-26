@@ -22,26 +22,17 @@ export class TodoListService {
       });
   }
 
-  addList(item: TodoListModel): void {
-    this.http.post('http://localhost:3000/todo', item)
-      .subscribe((res: any) => {
-        this.getList();
-      });
+  addList(item: TodoListModel): Observable<TodoListModel> {
+    return this.http.post<TodoListModel>('http://localhost:3000/todo', item);
   }
 
-  updateList(item: TodoListModel): void {
+  updateList(item: TodoListModel): Observable<TodoListModel> {
     const id = item.id;
-    this.http.put(`http://localhost:3000/todo/${id}`, item)
-      .subscribe((res: TodoListModel) => {
-        this.getList();
-      });
+    return this.http.put<TodoListModel>(`http://localhost:3000/todo/${id}`, item);
   }
 
-  deleteItemFromList(item: TodoListModel): void {
+  deleteItemFromList(item: TodoListModel): Observable<TodoListModel> {
     const id = item.id;
-    this.http.delete(`http://localhost:3000/todo/${id}`)
-      .subscribe((res: TodoListModel) => {
-        this.getList();
-      });
+    return this.http.delete<TodoListModel>(`http://localhost:3000/todo/${id}`);
   }
 }
