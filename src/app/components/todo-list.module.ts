@@ -10,12 +10,13 @@ import {MatIconModule} from '@angular/material/icon';
 import { ConfirmDialogComponent } from './popups/confirm-dialog/confirm-dialog.component';
 import {NewEditTodoListComponent} from './popups/new-edit-todo-list/new-edit-todo-list.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const routes: Routes = [
   {
@@ -46,7 +47,9 @@ const routes: Routes = [
     MatButtonModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCheckboxModule,
+    FormsModule
   ]
 })
 export class TodoListModule {

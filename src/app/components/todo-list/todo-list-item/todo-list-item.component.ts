@@ -16,7 +16,7 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
 
   unsubscribe = new Subject();
 
-  displayedColumns: string[] = ['id', 'name', 'createAt', 'editedAt', 'delete'];
+  displayedColumns: string[] = ['check', 'id', 'name', 'createAt', 'editedAt', 'delete'];
   dataSource: TodoListModel[] = [];
 
   constructor(
@@ -94,7 +94,13 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
   }
 
   editRow(e: any, item: TodoListModel): void {
-    if (e.target.innerText === 'delete') { return; }
+    if (e.target.innerText === 'delete'
+      || e.target.nextElementSibling.className === 'mat-checkbox-label'
+      || item.checked) { return; }
     this.editTable(item);
+  }
+
+  updateCheckBox(item: TodoListModel): void {
+    this.updateList(item);
   }
 }
