@@ -28,7 +28,7 @@ export class AuthFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.authForm.valid) {
       this.submitted.emit(this.authForm);
     }

@@ -20,6 +20,9 @@
       <mat-error *ngIf="itemForm.get('name').hasError('required')">
         Name is required
       </mat-error>
+      <mat-error *ngIf="itemForm.get('name').hasError('pattern')">
+        Name with only letters
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -29,6 +32,9 @@
       </label>
       <mat-error *ngIf="itemForm.get('description').hasError('required')">
         Description is required
+      </mat-error>
+      <mat-error *ngIf="minLength.errors?.minlength">
+        Description min 12 letter
       </mat-error>
     </mat-form-field>
 

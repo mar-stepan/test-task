@@ -27,12 +27,16 @@ export class NewEditTodoListComponent implements OnInit {
     this.item = this.data.new ? new TodoListModel() : this.data.item;
     this.itemForm = this.fb.group({
       id: [this.item.id, {disable: true}],
-      name: [this.item.name, Validators.required],
-      description: [this.item.description, Validators.required],
+      name: [this.item.name, [Validators.required, Validators.pattern('[A-Za-z]+')]],
+      description: [this.item.description, [Validators.required, Validators.minLength(12)]],
       createAt: [this.item.createAt, Validators.required],
       editedAt: [this.item.editedAt, Validators.required]
     });
     this.blockEditing();
+  }
+
+  get minLength() {
+    return this.itemForm.get('description');
   }
 
   blockEditing(): void {

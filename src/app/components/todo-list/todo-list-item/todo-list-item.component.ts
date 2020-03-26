@@ -74,7 +74,7 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
       });
   }
 
-  deleteTable(item: TodoListModel): void {
+  deleteTableItem(item: TodoListModel): void {
     this.matDialog.open(ConfirmDialogComponent, {data: {action: 'delete'}})
       .afterClosed()
       .subscribe((res: boolean) => {
@@ -84,7 +84,7 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
       });
   }
 
-  deleteItem(item: TodoListModel) {
+  deleteItem(item: TodoListModel): void {
     this.todoListService.deleteItemFromList(item)
       .subscribe((res: TodoListModel) => {
         if (res) {
@@ -95,7 +95,7 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
 
   editRow(e: any, item: TodoListModel): void {
     if (e.target.innerText === 'delete'
-      || e.target.nextElementSibling.className === 'mat-checkbox-label'
+      || e.target.nextElementSibling && e.target.nextElementSibling.className === 'mat-checkbox-label'
       || item.checked) { return; }
     this.editTable(item);
   }
