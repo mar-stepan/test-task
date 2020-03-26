@@ -16,7 +16,7 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
 
   unsubscribe = new Subject();
 
-  displayedColumns: string[] = ['id', 'name', 'createAt', 'editedAt', 'edit', 'delete'];
+  displayedColumns: string[] = ['id', 'name', 'createAt', 'editedAt', 'delete'];
   dataSource: TodoListModel[] = [];
 
   constructor(
@@ -63,5 +63,10 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
           this.todoListService.deleteItemFromList(item);
         }
       });
+  }
+
+  editRow(e: any, item: TodoListModel): void {
+    if (e.target.innerText === 'delete') { return; }
+    this.editTable(item);
   }
 }
